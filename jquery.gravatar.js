@@ -10,26 +10,29 @@
  * Requires http://pajhome.org.uk/crypt/md5/md5.js
  */
 
-$.gravatar = function(emailAddress, overrides)
+(function($)
 {
-    $.extend({ 
-        // Defaults are not hardcoded here in case gravatar changes them on their end.
-        // integer size: between 1 and 512, default 80 (in pixels)
-        size: '',
-        // rating: g (default), pg, r, x
-        rating: '',
-        // url to define a default image (can also be one of: identicon, monsterid, wavatar)
-        image: ''
-    }, overrides);
-
-    return $('<img src="http://www.gravatar.com/avatar/' +
-        hex_md5(emailAddress) +
-        '.jpg?' +
-        (options.size ? 's=' + options.size + '&' : '') +
-        (options.rating ? 'r=' + options.rating + '&' : '') +
-        (options.image ? 'd=' + encodeURIComponent(options.image) : '') + 
-        '"/>').bind('error', function()
-        {
-            $(this).remove();
-        });
-};
+    $.gravatar = function(emailAddress, overrides)
+    {
+        var options = $.extend({
+            // Defaults are not hardcoded here in case gravatar changes them on their end.
+            // integer size: between 1 and 512, default 80 (in pixels)
+            size: '',
+            // rating: g (default), pg, r, x
+            rating: '',
+            // url to define a default image (can also be one of: identicon, monsterid, wavatar)
+            image: ''
+        }, overrides);
+    
+        return $('<img src="http://www.gravatar.com/avatar/' +
+            hex_md5(emailAddress) +
+            '.jpg?' +
+            (options.size ? 's=' + options.size + '&' : '') +
+            (options.rating ? 'r=' + options.rating + '&' : '') +
+            (options.image ? 'd=' + encodeURIComponent(options.image) : '') + 
+            '"/>').bind('error', function()
+            {
+                $(this).remove();
+            });
+    };
+})(jQuery);

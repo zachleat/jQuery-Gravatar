@@ -3,7 +3,7 @@
     <head>
         <title>jQuery.Gravatar Demo</title>
         <script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.4.2/jquery.min.js"></script>
-        <script type="text/javascript" src="md5.js"></script>
+        <script type="text/javascript" src="http://pajhome.org.uk/crypt/md5/md5.js"></script>
         <script type="text/javascript" src="jquery.gravatar.js"></script>
         <script type="text/javascript">
         $(document).ready(function()

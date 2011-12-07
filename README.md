@@ -2,7 +2,7 @@
 
 ## Usage
 
-Whithout options:
+Without options:
 
     $('body').append($.gravatar('zachleatherman@gmail.com'));
 

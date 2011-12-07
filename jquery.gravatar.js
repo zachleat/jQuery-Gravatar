@@ -21,10 +21,14 @@
             // rating: g (default), pg, r, x
             rating: '',
             // url to define a default image (can also be one of: identicon, monsterid, wavatar)
-            image: ''
+            image: '',
+            // secure
+            secure: false
         }, overrides);
+
+        var baseUrl = options.secure ? 'https://secure.gravatar.com/avatar/' : 'http://www.gravatar.com/avatar/';
     
-        return $('<img src="http://www.gravatar.com/avatar/' +
+        return $('<img src="' + baseUrl +
             hex_md5(emailAddress) +
             '.jpg?' +
             (options.size ? 's=' + options.size + '&' : '') +

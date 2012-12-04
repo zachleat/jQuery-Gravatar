@@ -23,7 +23,9 @@
             // url to define a default image (can also be one of: identicon, monsterid, wavatar)
             image: '',
             // secure
-            secure: false
+            secure: false,
+            // support css on img element
+            classes: ''
         }, overrides);
 
         var baseUrl = options.secure ? 'https://secure.gravatar.com/avatar/' : 'http://www.gravatar.com/avatar/';

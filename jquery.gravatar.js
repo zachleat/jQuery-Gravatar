@@ -37,7 +37,7 @@
             (options.rating ? 'r=' + options.rating + '&' : '') +
             (options.image ? 'd=' + encodeURIComponent(options.image) : '') +
             '"' +
-            (options.classes ? 'class="' + options.classes + '"' : '') +
+            (options.classes ? ' class="' + options.classes + '"' : '') +
             ' />').bind('error', function()
             {
                 $(this).remove();

@@ -23,18 +23,22 @@
             // url to define a default image (can also be one of: identicon, monsterid, wavatar)
             image: '',
             // secure
-            secure: false
+            secure: false,
+            // support css on img element
+            classes: ''
         }, overrides);
 
         var baseUrl = options.secure ? 'https://secure.gravatar.com/avatar/' : 'http://www.gravatar.com/avatar/';
-    
+
         return $('<img src="' + baseUrl +
             hex_md5(emailAddress) +
             '.jpg?' +
             (options.size ? 's=' + options.size + '&' : '') +
             (options.rating ? 'r=' + options.rating + '&' : '') +
-            (options.image ? 'd=' + encodeURIComponent(options.image) : '') + 
-            '"/>').bind('error', function()
+            (options.image ? 'd=' + encodeURIComponent(options.image) : '') +
+            '"' +
+            (options.classes ? ' class="' + options.classes + '"' : '') +
+            ' />').bind('error', function()
             {
                 $(this).remove();
             });
